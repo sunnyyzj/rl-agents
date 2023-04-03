@@ -1,0 +1,58 @@
+I:\Research\tcom paper\rl-agents\scripts
+
+D:\Users\yanzi\miniconda3\python.exe -m experiments.py evaluate configs\CartPoleEnv\DQNAgent.json --train --episodes=200
+
+D:\Users\yanzi\miniconda3\python.exe -m experiments evaluate configs\CartPoleEnv\DQNAgent.json --train --episodes=200
+
+ D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\CartPoleEnv\DQNAgent.json --train --episodes=200
+
+ D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\CartPoleEnv\env.json configs\CartPoleEnv\DQNAgent.json --train --episodes=200
+
+Usage:
+  experiments evaluate <environment> <agent> (--train|--test) [options]
+  experiments benchmark <benchmark> (--train|--test) [options]
+  experiments -h | --help
+
+ D:\Users\yanzi\miniconda3\python.exe experiments.py --help
+gym.error.ResetNeeded: Cannot call `env.render()` before calling `env.reset()`, if this is a intended action, set `disable_render_order_enforcing=True` on the OrderEnforcer wrapper.
+
+
+ D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\CartPoleEnv\env.json configs\CartPoleEnv\DQNAgent.json --train --episodes=200
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env_easy.json configs\HighwayEnv\DQNAgent\dqn.json --train --episodes=200
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env.json configs\HighwayEnv\agents\DQNAgent\dqn.json --train --episodes=200
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env.json configs\HighwayEnv\agents\DQNAgent\dqn.json --train --episodes=200
+ion space has an unconventional shape (neither an image, nor a 1D vector). We recommend flattening the observation to have only a 1D vector or use a custom policy to properly process the data. Actual observation shape: (5, 5)
+  logger.warn(
+Traceback (most recent call last):
+  File "I:\Research\tcom paper\rl-agents\scripts\experiments.py", line 149, in <module>
+    main()
+  File "I:\Research\tcom paper\rl-agents\scripts\experiments.py", line 44, in main
+    evaluate(opts['<environment>'], opts['<agent>'], opts)
+  File "I:\Research\tcom paper\rl-agents\scripts\experiments.py", line 61, in evaluate
+    agent = load_agent(agent_config, env)
+  File "D:\Users\yanzi\miniconda3\lib\site-packages\rl_agents\agents\common\factory.py", line 42, in load_agent
+    return agent_factory(env, agent_config)
+  File "D:\Users\yanzi\miniconda3\lib\site-packages\rl_agents\agents\common\factory.py", line 25, in agent_factory
+    agent = agent_class(environment, config)
+  File "D:\Users\yanzi\miniconda3\lib\site-packages\rl_agents\agents\deep_q_network\pytorch.py", line 16, in __init__
+    super(DQNAgent, self).__init__(env, config)
+  File "D:\Users\yanzi\miniconda3\lib\site-packages\rl_agents\agents\deep_q_network\abstract.py", line 14, in __init__
+    assert isinstance(env.action_space, spaces.Discrete) or isinstance(env.action_space, spaces.Tuple), \
+AssertionError: Only compatible with Discrete action spaces.
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env.json configs\HighwayEnv\agents\DQNAgent\ddqn.json --train --episodes=200
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env.json configs\HighwayEnv\\agents\RandomUniformAgent\random.json --train --episodes=200
+works,success,build baseline for this
+
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env_obs_attention.json configs\HighwayEnv\agents\DQNAgent\dqn.json --train --episodes=200
+I:\Research\tcom paper\rl-agents\scripts\configs\HighwayEnv\env_easy_discrete_action.json
+
+D:\Users\yanzi\miniconda3\python.exe experiments.py evaluate configs\HighwayEnv\env_easy_discrete_action.json configs\HighwayEnv\agents\DQNAgent\dqn.json --train --episodes=200
+
+
+I:\Research\tcom paper\rl-agents\scripts\configs\HighwayEnv

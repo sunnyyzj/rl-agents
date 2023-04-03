@@ -1,0 +1,2 @@
+speed,crashed,action,other_vehicle_collision,agents_ho_prob,agents_tran_all_rewards,agents_tele_all_rewards,agents_rewards,agents_collided,distance_travelled,agents_survived,collision_reward,right_lane_reward,high_speed_reward,on_road_reward,tele_reward
+20.00019801064021,False,10,0,"(0.17777777777777778,)","(0.6666719469504057,)","(0.0005917219637241545,)","(0.6672636689141298,)","(False,)","(227.03100720971636,)",False,0.0,0.0,1.9801064021152114e-05,1.0,0.0005917219637241545

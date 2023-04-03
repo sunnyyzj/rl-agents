@@ -1,0 +1,5 @@
+moviepy
+imageio_ffmpeg
+PyOpenGL
+pyvirtualdisplay
+ipywidgets

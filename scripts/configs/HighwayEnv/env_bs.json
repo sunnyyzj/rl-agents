@@ -1,0 +1,39 @@
+{
+    "id": "highway-bs-v0",
+    "controlled_vehicles": 1,
+    "initial_lane_id": null,
+    "vehicles_density": 1,
+    "collision_reward": -1,    
+    "right_lane_reward": 0.1,                          
+    "high_speed_reward": 0.4,                       
+    "lane_change_reward": 0,   
+    "normalize_reward": true,
+    "offroad_terminal": false,
+    "simulation_frequency": 5,
+    "vehicles_count": 20,
+    "duration": 30,  
+    "ego_spacing": 1.5,
+    "obstacle_count": 20,
+    "action": {
+        "type": "DiscreteDualObjectMetaAction"
+    },
+
+    "rf_bs_count": 5,
+    "thz_bs_count": 20,
+    "rf_bs_max_connections": 10,
+    "thz_bs_max_connections": 5,
+    "tele_reward": 4.510E-7,
+    "tele_reward_threshold": 4.510E-7,
+    "ho_reward": -5,
+    "other_vehicles_type": "highway_env.vehicle.behavior.IDMVehicleWithTelecom",
+    "lanes_count": 3,
+    "road_start": 0,
+    "road_length": 10000,
+    "observation": {
+            "type": "KinematicsTele",
+            "features": ["presence", "x", "y", "vx", "vy", "rf_cnt", "thz_cnt"],
+        "vehicles_count": 5
+    },
+    "max_detection_distance": 1000
+
+}

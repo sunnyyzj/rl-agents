@@ -17,6 +17,8 @@ from rl_agents.utils import near_split, zip_with_singletons
 from rl_agents.configuration import serialize
 from rl_agents.trainer.graphics import RewardViewer
 
+import csv
+from datetime import datetime, timezone, tzinfo
 logger = logging.getLogger(__name__)
 
 
@@ -30,7 +32,7 @@ class Evaluation(object):
     RUN_FOLDER = 'run_{}_{}'
     METADATA_FILE = 'metadata.{}.json'
     LOGGING_FILE = 'logging.{}.log'
-
+    
     def __init__(self,
                  env,
                  agent,
@@ -111,6 +113,9 @@ class Evaluation(object):
         if display_rewards:
             self.reward_viewer = RewardViewer()
         self.observation = None
+        
+        csv_path = "csv_test/csv_log_"+datetime.now().strftime('%Y%m%d_%H%M%S')+".csv"
+        self.csv_path = csv_path
 
     def train(self):
         self.training = True
@@ -145,7 +150,7 @@ class Evaluation(object):
             start_time = time.time()
             while not terminal:
                 # Step until a terminal step is reached
-                reward, terminal = self.step()
+                reward, terminal,info = self.step()
                 rewards.append(reward)
 
                 # Catch interruptions
@@ -181,9 +186,15 @@ class Evaluation(object):
         self.observation, reward, done, truncated, info = transition
         terminal = done or truncated
 
+        info_copy = info
+        info_copy['episode'] = self.episode
+        info_copy['total_reward'] = reward
+        self.logger_csv_writer(info_copy)
+
+
         # Call callback
         if self.step_callback_fn is not None:
-            self.step_callback_fn(self.episode, self.wrapped_env, self.agent, transition, self.writer)
+            self.step_callback_fn(self.episode, self.wrapped_env, self.agent, transition, self.writer,reward,info)
 
         # Record the experience.
         try:
@@ -191,7 +202,42 @@ class Evaluation(object):
         except NotImplementedError:
             pass
 
-        return reward, terminal
+        return reward, terminal,info
+    
+    def logger_csv_writer(self,data):
+        rewards = data.pop('rewards')
+        for key, value in rewards.items():
+            data[key] = value
+        
+        # Unwrap the tuple value for 'agents_ho_prob'
+        data['agents_ho_prob'] = data['agents_ho_prob'][0]
+        data['agents_tran_all_rewards'] = data['agents_tran_all_rewards'][0]
+        data['agents_tele_all_rewards'] = data['agents_tele_all_rewards'][0]
+        data['agents_rewards'] = data['agents_rewards'][0]
+        data['agents_collided'] = data['agents_collided'][0]
+        data['distance_travelled'] = data['distance_travelled'][0]
+
+        # Open the CSV file in append mode
+        with open(self.csv_path, 'a', newline='') as file:
+            writer = csv.writer(file)
+
+            # Write the header row if the file is empty
+            if file.tell() == 0:
+                writer.writerow(data.keys())
+
+            # Write the data row
+            writer.writerow(data.values())
+
+
+    def step_callback_fn(episode, wrapped_env, agent, transition, writer,reward, info):
+        '''
+        unwrap tele, tran reward from infoto  step(self)
+        write down in the logger and record another copy 
+        '''
+
+
+        return 0
+
 
     def run_batched_episodes(self):
         """
@@ -331,7 +377,15 @@ class Evaluation(object):
         self.writer.add_scalar('episode/return', sum(r*gamma**t for t, r in enumerate(rewards)), episode)
         self.writer.add_scalar('episode/fps', len(rewards) / max(duration, 1e-6), episode)
         self.writer.add_histogram('episode/rewards', rewards, episode)
-        logger.info("Episode {} score: {:.1f}".format(episode, sum(rewards)))
+        # print(self.wrapped_env._info())
+        # self.writer.add_scalar('rollout/ho_prob', self.wrapped_env.locals['infos'][0]['agents_ho_prob'][0])
+        # self.writer.add_scalar('rollout/tel_mean', self.wrapped_env.locals['infos'][0]['agents_tele_average_rewards'][0])
+        # self.writer.add_scalar('rollout/tran_mean', self.wrapped_env.locals['infos'][0]['agents_tran_average_rewards'][0])
+        # self.writer.add_scalar('rollout/tel_total', self.wrapped_env.locals['infos'][0]['agents_tele_total_rewards'][0])
+        # self.writer.add_scalar('rollout/tran_total', self.wrapped_env.locals['infos'][0]['agents_tran_total_rewards'][0])
+        # self.writer.add_scalar('rollout/steps', self.wrapped_env.locals['infos'][0]['agents_self_steps'][0])
+        # self.writer.add_scalar('rollout/distance_travelled', self.locals['infos'][0]['distance_travelled'][0])
+        # logger.info("Episode {} score: {:.1f}".format(episode, sum(rewards)))
 
     def after_some_episodes(self, episode, rewards,
                             best_increase=1.1,
