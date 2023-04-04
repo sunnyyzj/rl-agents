@@ -1,0 +1,13 @@
+cff61d5c2e166b3479647633aae4a2f65d9551d8		branch 'master' of https://github.com/eleurent/rl-agents
+572f575ba131c1d27086875a8542817e402e1147	not-for-merge	branch 'RecedingHorizon2' of https://github.com/eleurent/rl-agents
+628d72467f6b061d349db1fa5d43027381846958	not-for-merge	branch 'dev' of https://github.com/eleurent/rl-agents
+dbf093876445b2d7fe0fe088bea31957bfb2e51f	not-for-merge	branch 'dev-bai-accuracy' of https://github.com/eleurent/rl-agents
+f54d7ff14b281acbbe9ab478214cbd2e64c3aab7	not-for-merge	branch 'dev-bai-mcts' of https://github.com/eleurent/rl-agents
+5fda0c08e6eaa06361eb78dfea6bf6e7cbbee4e9	not-for-merge	branch 'dev-bftq' of https://github.com/eleurent/rl-agents
+7457cdaeb34eea3f79eddd34ecb9ccdf4b9cd66c	not-for-merge	branch 'dev-permutation-invariance-branch' of https://github.com/eleurent/rl-agents
+b9d470398191c7d1b6c45156325db4263f05648d	not-for-merge	branch 'dev-planners' of https://github.com/eleurent/rl-agents
+1d85b05461a1f6a23e2fb2b051b3d49b1e678781	not-for-merge	branch 'dev-policy-gradient-branch' of https://github.com/eleurent/rl-agents
+5e396546fa868ab7ab360caa142bddfd884a26a2	not-for-merge	branch 'dev-robust' of https://github.com/eleurent/rl-agents
+406ce49c20922d82374b85d8c47f3f9b25376788	not-for-merge	branch 'fixOLOPmistake' of https://github.com/eleurent/rl-agents
+55da4ff6a6d5751208cecf65e8d02501a22506fd	not-for-merge	branch 'state-planning' of https://github.com/eleurent/rl-agents
+b8c643f5bac767baf6fd4b01cb346f548a928fc7	not-for-merge	branch 'tmp' of https://github.com/eleurent/rl-agents

@@ -1,0 +1,14 @@
+# pack-refs with: peeled fully-peeled sorted 
+572f575ba131c1d27086875a8542817e402e1147 refs/remotes/origin/RecedingHorizon2
+628d72467f6b061d349db1fa5d43027381846958 refs/remotes/origin/dev
+dbf093876445b2d7fe0fe088bea31957bfb2e51f refs/remotes/origin/dev-bai-accuracy
+f54d7ff14b281acbbe9ab478214cbd2e64c3aab7 refs/remotes/origin/dev-bai-mcts
+5fda0c08e6eaa06361eb78dfea6bf6e7cbbee4e9 refs/remotes/origin/dev-bftq
+7457cdaeb34eea3f79eddd34ecb9ccdf4b9cd66c refs/remotes/origin/dev-permutation-invariance-branch
+b9d470398191c7d1b6c45156325db4263f05648d refs/remotes/origin/dev-planners
+1d85b05461a1f6a23e2fb2b051b3d49b1e678781 refs/remotes/origin/dev-policy-gradient-branch
+5e396546fa868ab7ab360caa142bddfd884a26a2 refs/remotes/origin/dev-robust
+406ce49c20922d82374b85d8c47f3f9b25376788 refs/remotes/origin/fixOLOPmistake
+02e03038e3dba7c2eed5b6ae64b08f0f7bd3706c refs/remotes/origin/master
+55da4ff6a6d5751208cecf65e8d02501a22506fd refs/remotes/origin/state-planning
+b8c643f5bac767baf6fd4b01cb346f548a928fc7 refs/remotes/origin/tmp
