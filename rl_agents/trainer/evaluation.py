@@ -308,7 +308,6 @@ class Evaluation(object):
         :return: a list of trajectories, i.e. lists of Transitions
         """
         env = load_environment(environment_config)
-        env.seed(seed)
 
         if batch == 0:  # Force pure exploration during first batch
             agent_config["exploration"]["final_temperature"] = 1
@@ -318,7 +317,7 @@ class Evaluation(object):
         agent.seed(seed)
         agent.set_time(start_time)
 
-        state = env.reset()
+        state = env.reset(seed=seed)
         episodes = []
         trajectory = []
         for _ in range(count):
